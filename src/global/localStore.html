@@ -1,0 +1,17 @@
+<div id="input-wrapper">
+                <textarea className="dynamic-input" id="input-1" value={innerText} onChange={e => updateInnerText(e.target.value)} contentEditable/>
+                <p className="p-text" id="p-text-1">{innerText}</p>
+                <button className="edit-button" id="edit-button-1" onClick={() => {
+                    if (isEditMode) {
+                        document.getElementById("input-1")!.style.display = "inline-block";
+                        document.getElementById("p-text-1")!.style.display = "none";
+                        document.getElementById("edit-button-1")!.innerText = "Save";
+                        updateEditMode(false)
+                    } else {
+                        document.getElementById("input-1")!.style.display = "none";
+                        document.getElementById("p-text-1")!.style.display = "inline-block";
+                        document.getElementById("edit-button-1")!.innerText = "Edit";
+                        updateEditMode(true)
+                    }
+                }}>EDIT</button>
+            </div>

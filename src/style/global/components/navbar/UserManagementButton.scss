@@ -1,0 +1,19 @@
+.usermanagementbutton {
+  .inner-usermanagementbutton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .userimage-usermanagementbutton {
+      .img-userimage-usermanagementbutton {
+        border-radius: 50%;
+        height: 40px;
+        padding: 10px;
+      }
+    }
+    .logout-usermanagementbutton {
+        padding: 8px;
+    }
+  }
+}

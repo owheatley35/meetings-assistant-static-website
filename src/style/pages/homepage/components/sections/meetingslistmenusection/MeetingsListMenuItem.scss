@@ -1,0 +1,23 @@
+@import "../../../../../resources";
+
+.meetingslistmenuitem {
+  border-radius: 60px;
+  box-shadow: 0px 0px 9px rgba(191, 191, 191, 0.47);
+  padding: 10px;
+  margin: 15px;
+
+  .row-meetingslistmenuitem {
+    justify-content: space-between;
+
+    .titlesection-row-meetingslistmenuitem {
+      width: 50%;
+      padding-left: 3%;
+    }
+
+    .rightside-row-meetingslistmenuitem {
+      justify-content: space-between;
+      width: 40%;
+      padding-right: 30px;
+    }
+  }
+}

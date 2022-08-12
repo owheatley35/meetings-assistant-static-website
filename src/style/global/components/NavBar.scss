@@ -1,0 +1,56 @@
+@import "../../resources";
+
+.navbar {
+  height: 8%;
+  background: $color-main;
+  width: 100%;
+  .inner-navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .navigation-navbar {
+      width: 45%;
+      padding-right: 30px;
+
+      .inner-navigation-navbar {
+        text-align: center;
+        .list-navigation-navbar {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          padding-inline-start: 0;
+          list-style-type: none;
+
+          .item-list-navigation-navbar {
+            align-items: center;
+            align-content: center;
+            display: flex;
+            .text-item-list-navigation-navbar {
+              font-family: $font-main;
+              font-weight: lighter;
+              font-size: 18px;
+
+              &:hover {
+                cursor: pointer;
+                text-decoration: underline 0.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.site-title-navbar {
+  font-family: $font-main;
+  font-weight: bold;
+  font-size: 26px;
+  padding-left: 22px;
+}

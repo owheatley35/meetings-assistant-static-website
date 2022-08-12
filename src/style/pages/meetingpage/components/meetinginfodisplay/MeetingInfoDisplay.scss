@@ -1,0 +1,99 @@
+@import "src/style/global";
+
+.meeting-info-display {
+
+  .inner-meeting-info-display {
+    margin: 20px;
+
+    .title-section-meeting-info-display {
+      padding: 20px;
+
+      .inner-title-section-meeting-info-display {
+        display: flex;
+        flex-direction: row;
+
+        .info-title-section-meeting-info-display {
+          width: 75%;
+
+          .date-wrapper-info-title-section-meeting-info-display {
+
+            .date-text-title {
+              font-size: 28px;
+            }
+          }
+
+          .title-wrapper-info-title-section-meeting-info-display {
+
+            .meeting-title-text {
+              font-size: 45px;
+            }
+          }
+        }
+
+        .options-title-section-meeting-info-display {
+          width: 25%;
+
+          .inner-options-title-section-meeting-info-display {
+
+            .horizontal-options-title-section-meeting-info-display {
+              display: flex;
+              flex-direction: row;
+              float: right;
+
+                .button-wrap {
+                  margin: 5px;
+                  padding: 5px;
+                }
+            }
+          }
+        }
+      }
+    }
+
+    .body-section-meeting-info-display {
+      padding: 20px;
+
+      .inner-body-section-meeting-info-display {
+
+        .horizontal-body-section-meeting-info-display {
+
+          .main-body-section-meeting-info-display {
+
+            .inner-main-body-section-meeting-info-display {
+
+              .transcript-wrap-main-body-section-meeting-info-display {
+                margin-bottom: 15px;
+              }
+
+              .notes-section-main-body-section-meeting-info-display {
+
+              }
+            }
+          }
+
+          .side-panel-body-section-meeting-info-display {
+
+          }
+        }
+      }
+    }
+  }
+}
+
+.new-note-li {
+  margin: 10px;
+}
+
+.new-note-div {
+  display: none;
+}
+
+.cancel-button-li {
+  margin: 3px;
+  display: none;
+}
+// use ⭐ for bullets.
+
+.delete-buttons-class {
+  display: none;
+}

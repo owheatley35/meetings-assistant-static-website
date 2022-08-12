@@ -1,0 +1,127 @@
+@import "resources";
+
+.longways {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
+
+.center-content {
+  align-items: center;
+  align-content: center;
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p {
+  margin: 0;
+}
+
+// == FONTS START ==
+
+.text-normal-bold {
+  font-family: $font-main;
+  font-size: $size-medium;
+  font-weight: bold;
+}
+
+.text-large-bold {
+  font-family: $font-main;
+  font-size: $size-small-heading;
+  font-weight: bold;
+}
+
+.text-small-bold {
+  font-family: $font-main;
+  font-size: $size-small;
+  font-weight: bold;
+}
+
+.text-header-small-thin {
+  font-family: $font-main;
+  font-size: $size-small-heading;
+  font-weight: lighter;
+}
+
+.text-normal {
+  font-family: $font-main;
+  font-size: $size-standard;
+  font-weight: normal;
+}
+
+.text-normalish-thin {
+  font-family: $font-main;
+  font-size: $size-medium;
+  font-weight: lighter;
+}
+
+.form-label-text {
+  font-family: $font-main;
+  padding: 10px;
+}
+
+// == FONTS END ==
+
+// == BUTTONS START ==
+
+.button-standard {
+  background: #faf8f8;
+  transition: 0.3s ease-in-out;
+  border: gray 0.1px solid;
+  border-radius: 8px;
+  padding: 8px;
+
+  &:hover {
+    cursor: pointer;
+    background: $color-main;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+// == BUTTONS END ==
+
+// == BULLETS START ==
+
+.star-bullet-point {
+  list-style-type: '⭐';
+  padding-left: 10px;
+  margin-top: 6px;
+}
+
+// == BULLETS END ==
+
+.dynamic-save-button {
+  width: 50px;
+}
+
+.dynamic-input {
+  border: none;
+  width: 250px;
+  max-width: 250px;
+  display: none;
+
+  &:focus {
+    border: solid 0.6px black;
+  }
+}
+
+.edit-button {
+  display: none;
+}
+
+#input-wrapper:hover .edit-button {
+  display: inline-block;
+}

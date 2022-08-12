@@ -1,0 +1,19 @@
+@import "../../../../../resources";
+
+.meetingslistmenusection {
+  width: 85%;
+  padding: 20px;
+  .inner-meetingslistmenusection {
+    .toprow-meetingslistmenusection {
+      justify-content: space-between;
+
+      .title-toprow-meetingslistmenusection {
+        .heading-title-toprow-meetingslistmenusection {
+          font-family: $font-main;
+          font-weight: lighter;
+          font-size: $size-heading;
+        }
+      }
+    }
+  }
+}
