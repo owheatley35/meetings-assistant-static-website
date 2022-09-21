@@ -15,8 +15,8 @@ namespace Constants {
     // Web / API Configuration
     export const BETA_WEB_PREFIX: string = "https://d39fabdbkbjoyk.cloudfront.net";
     export const PRODUCTION_WEB_PREFIX: string = "https://d2v87sbys8bkb2.cloudfront.net";
-    export const BETA_API_URL: string = "https://xs275qcq3m.execute-api.eu-west-2.amazonaws.com";
-    export const PRODUCTION_API_URL: string = "https://uc1971ytq4.execute-api.eu-west-2.amazonaws.com";
+    export const BETA_API_URL: string = "https://xs275qcq3m.execute-api.eu-west-2.amazonaws.com/prod";
+    export const PRODUCTION_API_URL: string = "https://uc1971ytq4.execute-api.eu-west-2.amazonaws.com/prod";
 
     // API Routes:
     export const API_ROUTE_GET_ALL_MEETINGS: string = "/get/all-basic-meetings";
