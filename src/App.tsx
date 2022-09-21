@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import HomePage from "./pages/homepage/HomePage";
-import LoginPage from "./pages/loginpage/LoginPage";
-import NewMeetingPage from "./pages/newmeetingpage/NewMeetingPage";
-import MeetingPage from "./pages/meetingpage/MeetingPage";
-import EditMeetingPage from "./pages/editmeetingpage/EditMeetingPage";
+import HomePage from "./components/pages/homepage/HomePage";
+import LoginPage from "./components/pages/loginpage/LoginPage";
+import NewMeetingPage from "./components/pages/newmeetingpage/NewMeetingPage";
+import MeetingPage from "./components/pages/meetingpage/MeetingPage";
+import EditMeetingPage from "./components/pages/editmeetingpage/EditMeetingPage";
 import LocalView from "./global/LocalView";
 
 function App() {

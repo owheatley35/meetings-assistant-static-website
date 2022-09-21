@@ -1,9 +1,9 @@
-import MeetingInfoDisplay from "../pages/meetingpage/components/meetinginfodisplay/MeetingInfoDisplay";
-import {MeetingInfo} from "../pages/meetingpage/MeetingProvider";
-import NavBar from "./components/NavBar";
+import MeetingInfoDisplay from "../components/pages/meetingpage/components/meetinginfodisplay/MeetingInfoDisplay";
+import {MeetingInfo} from "../components/pages/meetingpage/MeetingProvider";
+import NavBar from "../components/navbar/NavBar";
 import "../style/global.scss"
 import {useState} from "react";
-import EditMeetingForm from "../pages/editmeetingpage/components/EditMeetingForm";
+import EditMeetingForm from "../components/pages/editmeetingpage/components/EditMeetingForm";
 
 function LocalView() {
 
