@@ -26,7 +26,7 @@ async function getUsersMeetings(accessToken: string): Promise<Array<MeetingListM
         console.log(json_message)
         console.log(json_message.message);
 
-        json_message.message.forEach((meeting: { meeting_id: any; meeting_title: any; number_of_attendees: any; meeting_date: any }) => {
+        json_message.forEach((meeting: { meeting_id: any; meeting_title: any; number_of_attendees: any; meeting_date: any }) => {
             meetings.push({
                 meetingID: meeting.meeting_id,
                 meetingTitle: meeting.meeting_title,
