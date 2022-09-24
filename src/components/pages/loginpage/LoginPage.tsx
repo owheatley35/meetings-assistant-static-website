@@ -9,6 +9,9 @@ class LoginPage extends Component {
             <div className="login-page">
                 <NavBar />
                 <div className="center-content vertical">
+                    <div className="divider"></div>
+                    <h1 className="text-large-bold">A Meeting note Tool for Professionals.</h1>
+                    <div className="divider"></div>
                     <h1 className="text-large-bold">Please Log In by clicking below...</h1>
                     <div className="main-content center-content vertical">
                         <LoginButton />

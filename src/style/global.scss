@@ -122,6 +122,11 @@ p {
   display: none;
 }
 
+.divider {
+  height: 50px;
+  width: 100%;
+}
+
 #input-wrapper:hover .edit-button {
   display: inline-block;
 }
