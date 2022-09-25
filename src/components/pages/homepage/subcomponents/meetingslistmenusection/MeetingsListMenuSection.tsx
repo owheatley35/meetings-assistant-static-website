@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import "../../../../../style/pages/homepage/components/sections/meetingslistmenusection/MeetingsListMenuSection.scss"
-import {MeetingListMenuItemProps} from './MeetingsListMenuItem';
-import MeetingsListMenuItemsLoaderView from "./meetingslistmenuitemsloader/MeetingsListMenuItemsLoaderView";
+import MeetingsListMenuItem, {MeetingListMenuItemProps} from './MeetingsListMenuItem';
 import {useAuth0} from "@auth0/auth0-react";
 import getUsersMeetings from "../../../../../api/provider/MeetingsProvider";
+import HomePageState from "../HomePageState";
 
 export interface MeetingListMenuSectionProps {
     readonly meetingListItems: Array<MeetingListMenuItemProps>
+    readonly pageState: HomePageState
 }
 
 const MeetingsListMenuSection = () => {
@@ -14,16 +15,13 @@ const MeetingsListMenuSection = () => {
     const starterStateArray: Array<MeetingListMenuItemProps> = []
     const [meetingListMenuSectionProps, setMeetingListMenuSectionProps] =
         useState(starterStateArray);
+    const [pageState, setPageState] = useState(HomePageState.LOADING);
 
     const {getAccessTokenSilently} = useAuth0();
 
     useEffect(() => {
-        const getMeetingItems = async () => {
-            const accessToken = await getAccessTokenSilently();
-            const meetingItems = await getUsersMeetings(accessToken);
-            setMeetingListMenuSectionProps(meetingItems);
-        }
-        getMeetingItems()
+        getMeetingItems();
+
     }, []);
 
     return (
@@ -42,11 +40,55 @@ const MeetingsListMenuSection = () => {
                     </div>
                 </div>
                 <div className="meeetinglist-meetingslistmenusection">
-                    <MeetingsListMenuItemsLoaderView meetingListItems={meetingListMenuSectionProps}/>
+                    {
+                        meetingsDisplayLoad()
+                    }
                 </div>
             </div>
         </div>
     )
+
+    async function getMeetingItems() {
+        setPageState(HomePageState.LOADING);
+        const accessToken = await getAccessTokenSilently();
+        const meetingItems = await getUsersMeetings(accessToken);
+        setMeetingListMenuSectionProps(meetingItems);
+        setPageState(HomePageState.COMPLETE);
+    }
+
+    function meetingsDisplayLoad() {
+        if (pageState === HomePageState.LOADING) {
+            return (
+                <div className="vertical center-content">
+                    <h1>Loading Your Meetings . . .</h1>
+                </div>
+            )
+        } else if (pageState === HomePageState.COMPLETE) {
+            if (meetingListMenuSectionProps.length >= 1) {
+                return (
+                    <div>
+                        <ul>
+                            {
+                                meetingListMenuSectionProps.map((item) => {
+                                    return <MeetingsListMenuItem {...item}/>
+                                })
+                            }
+                        </ul>
+                        <button className="button-standard" onClick={getMeetingItems}>Refresh</button>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="vertical center-content">
+                        <h1>There were no meetings to load.</h1>
+                        <button className="button-standard" onClick={getMeetingItems}>Try Again</button>
+                    </div>
+                )
+            }
+        }
+    }
 }
+
+
 
 export default MeetingsListMenuSection

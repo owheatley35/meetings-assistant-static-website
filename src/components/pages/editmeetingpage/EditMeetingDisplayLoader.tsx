@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import EditMeetingForm from "./components/EditMeetingForm";
 import Constants from "../../../global/Constants";
-import getMeetingById, {MeetingInfo} from "../meetingpage/MeetingProvider";
+import getMeetingById, {MeetingInfo} from "../../../api/provider/MeetingProvider";
 
 interface EditMeetingProps {
     readonly meetingId: number

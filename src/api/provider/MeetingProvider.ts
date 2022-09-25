@@ -1,6 +1,9 @@
-import {MeetingListMenuItemProps} from "../homepage/subcomponents/meetingslistmenusection/MeetingsListMenuItem";
-import formatDateForPresentation from "../../../global/tools/StringTools";
-import Constants from "../../../global/Constants";
+import {MeetingListMenuItemProps} from "../../components/pages/homepage/subcomponents/meetingslistmenusection/MeetingsListMenuItem";
+import formatDateForPresentation from "../../global/tools/StringTools";
+import Constants from "../../global/Constants";
+import make_request from "../ApiRequester";
+import API_ROUTE_GET_MEETING_FROM_ID = Constants.API_ROUTE_GET_MEETING_FROM_ID;
+import HttpMethod from "../HttpMethod";
 
 export interface MeetingInfo extends MeetingListMenuItemProps {
     readonly meetingTranscript: string,
@@ -10,23 +13,12 @@ export interface MeetingInfo extends MeetingListMenuItemProps {
 // TODO: Update fetch URL to new endpoint (and authentication)
 async function getMeetingById(accessToken: string, meetingId: number): Promise<MeetingInfo> {
     try {
-        const response = await fetch("/api/get/meeting-from-id", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "meeting_id": meetingId
-            })
-        });
 
-        const meetings_data = await response;
-        const json_data = await meetings_data.json();
+        const body = JSON.stringify({
+                    "meeting_id": meetingId
+            });
 
-        console.log(json_data.meeting);
-
-        const meeting = json_data.meeting
+        const meeting = await make_request(API_ROUTE_GET_MEETING_FROM_ID, accessToken, HttpMethod.POST, body)
 
         return {
             meetingID: meeting.meeting_id,

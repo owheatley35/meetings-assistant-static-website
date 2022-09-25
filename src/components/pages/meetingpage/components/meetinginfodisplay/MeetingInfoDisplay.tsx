@@ -1,13 +1,13 @@
 import MeetingInfoDisplayProps from "./MeetingInfoDisplayProps";
 import "../../../../../style/pages/meetingpage/components/meetinginfodisplay/MeetingInfoDisplay.scss"
 import Constants from "../../../../../global/Constants";
-import {useState} from "react";
-import updateMeetingNote, {validateNote} from "../../MeetingNoteUpdater";
+import {useEffect, useState} from "react";
+import updateMeetingNote, {validateNote} from "../../../../../api/MeetingEditor/MeetingNoteUpdater";
 import {useAuth0} from "@auth0/auth0-react";
-import createNewMeeting from "../../MeetingNoteCreator";
+import createNewMeetingNote from "../../../../../api/MeetingEditor/MeetingNoteCreator";
 import DeleteMeetingButton from "../DeleteMeetingButton";
-import getUserRole from "../../../../../global/helper/RoleHelper";
-import deleteMeetingNote from "../../MeetingNoteDeleter";
+import getUserRole from "../../../../../api/provider/UserRoleProvider";
+import deleteMeetingNote from "../../../../../api/MeetingEditor/MeetingNoteDeleter";
 import EditMeetingPage from "../../../editmeetingpage/EditMeetingPage";
 
 
@@ -28,10 +28,12 @@ function MeetingInfoDisplay(props: MeetingInfoDisplayProps) {
         initArray.push(true)
     }
 
-    const tokenMethod = getAccessTokenSilently()
-    getUserRole(tokenMethod).then((result) => {
-        updateUserRole(result)
-    })
+    useEffect(() => {
+        const tokenMethod = getAccessTokenSilently()
+        getUserRole(tokenMethod).then((result) => {
+            updateUserRole(result)
+        })
+    }, []);
 
     const [editModeList, updateEditModeList] = useState(initArray)
 
@@ -174,7 +176,7 @@ function MeetingInfoDisplay(props: MeetingInfoDisplayProps) {
                                                                 document.getElementById("new-note-wrap")!.style.display = "none";
 
                                                                 const accessCodePromise = getAccessTokenSilently()
-                                                                createNewMeeting(accessCodePromise, Number(props.meetingInfo.meetingID), newNoteState).then(() => {
+                                                                createNewMeetingNote(accessCodePromise, Number(props.meetingInfo.meetingID), newNoteState).then(() => {
                                                                     updateNewNoteState("")
                                                                     window.location.reload()
                                                                 })
@@ -247,7 +249,7 @@ function MeetingInfoDisplay(props: MeetingInfoDisplayProps) {
 function formatNotes(notes: string): string[] {
     if (notes) {
         let splitNotes = notes.split(Constants.NOTE_SPLITTER)
-        return splitNotes.splice(1)
+        return splitNotes.splice(1).filter(note => note != "")
     } else {
         return []
     }

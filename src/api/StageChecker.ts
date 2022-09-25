@@ -8,9 +8,9 @@ import {WebUrls, Stage} from "../global/Constants";
  *  @returns {Stage} The stage name in CAPS
  */
 export default function identifyStage(url: string): Stage {
-    if (url.includes(WebUrls.get(Stage.BETA)!)) {
-        return Stage.BETA;
-    } else {
+    if (url.includes(WebUrls.get(Stage.PROD)!)) {
         return Stage.PROD;
+    } else {
+        return Stage.BETA;
     }
 }

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import meetingDeleter from "../MeetingDeleter";
+import meetingDeleter from "../../../../api/MeetingEditor/MeetingDeleter";
 import {useAuth0} from "@auth0/auth0-react";
-import getUserRole from "../../../../global/helper/RoleHelper";
+import getUserRole from "../../../../api/provider/UserRoleProvider";
 
 interface DeleteMeetingButtonProps {
     readonly meetingId: number
@@ -19,7 +19,7 @@ export default function DeleteMeetingButton(props: DeleteMeetingButtonProps) {
                 updateIsAdmin(true);
             }
         })
-    })
+    }, [])
 
 
 

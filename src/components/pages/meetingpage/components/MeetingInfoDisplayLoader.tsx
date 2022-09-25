@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
-import getMeetingById, {MeetingInfo} from "../MeetingProvider";
+import getMeetingById, {MeetingInfo} from "../../../../api/provider/MeetingProvider";
 import Constants from "../../../../global/Constants";
 import MeetingInfoDisplay from "./meetinginfodisplay/MeetingInfoDisplay";
 
@@ -39,7 +39,7 @@ function MeetingInfoDisplayLoader(props: MeetingInfoDisplayProps) {
     if (meetingInfoState.meetingID == Constants.LOADING) {
         return (
             <div>
-                <h1>LOADING...</h1>
+                <h1>LOADING Your Meeting...</h1>
             </div>
         )
     } else if (meetingInfoState.meetingID == Constants.DOES_NOT_EXIST) {

@@ -1,5 +1,6 @@
 import "../../style/global/components/NavBar.scss"
 import UserManagementButton from "./UserManagementButton";
+import {getWebStage} from "../../api/provider/ProviderConfigurator";
 
 function NavBar() {
 
@@ -7,8 +8,9 @@ function NavBar() {
         <div className="navbar">
             <div className="inner-navbar">
                 <div className="header-navbar">
-                    <div className="inner-header-navbar">
+                    <div className="inner-header-navbar, longways">
                         <h1 className="site-title-navbar">Meetings Assistant</h1>
+                        <h3 className="text-header-small-thin, padding-horizontal-small">{getWebStage(window.location.origin)}</h3>
                     </div>
                 </div>
                 <div className="navigation-navbar">

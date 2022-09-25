@@ -11,7 +11,7 @@ const APICallTrial = () => {
             try {
                 const accessToken = await getAccessTokenSilently();
 
-                const metadataResponse = await fetch("/api/get/all-basic-meetings", {
+                const metadataResponse = await fetch("/get/all-basic-meetings", {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },

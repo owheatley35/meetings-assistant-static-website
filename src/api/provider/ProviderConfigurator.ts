@@ -29,3 +29,11 @@ export function formatAPIUrl(stage: Stage, apiEndpoint:string): string {
     const stage_api_prefix: string = getApiUrl(WebUrls.get(stage)!)
     return stage_api_prefix + apiEndpoint
 }
+
+export function getWebStage(currentUrl: string): Stage {
+    if (currentUrl.includes("localhost") || currentUrl.includes(Constants.BETA_WEB_PREFIX)) {
+        return Stage.BETA;
+    } else {
+        return Stage.PROD;
+    }
+}

@@ -2,7 +2,7 @@ import MeetingInfoDisplayProps from "../../meetingpage/components/meetinginfodis
 import {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {unformatDateForTransmission} from "../../../../global/tools/StringTools";
-import editMeeting from "../MeetingEditor";
+import editMeeting from "../../../../api/MeetingEditor/MeetingEditor";
 
 function EditMeetingForm(props: MeetingInfoDisplayProps) {
 

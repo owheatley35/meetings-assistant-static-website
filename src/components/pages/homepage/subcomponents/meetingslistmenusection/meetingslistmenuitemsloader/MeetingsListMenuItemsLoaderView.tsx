@@ -11,7 +11,7 @@ const MeetingsListMenuItemsLoaderView = (meetingsProps: MeetingListMenuSectionPr
 
     // States
     const [timeOutActivated, updateTimeOutActivated] = useState(false);
-    const [doesHaveMeetingsToDisplay, updateDoesHaveMeetingsToDisplay] = useState((meetingsProps.meetingListItems.length > 1));
+    const [doesHaveMeetingsToDisplay, updateDoesHaveMeetingsToDisplay] = useState((meetingsProps.meetingListItems.length >= 1));
     const [loadingPlacementText, updateLoadingPlacementText] = useState(loadingText);
 
     const viewModel = new MeetingsListMenuItemsLoaderViewModel(document, true);

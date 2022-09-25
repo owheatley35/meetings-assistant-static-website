@@ -1,4 +1,4 @@
-import {MeetingInfo} from "../../MeetingProvider";
+import {MeetingInfo} from "../../../../../api/provider/MeetingProvider";
 
 interface MeetingInfoDisplayProps {
     readonly meetingInfo: MeetingInfo
