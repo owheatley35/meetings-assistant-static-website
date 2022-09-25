@@ -3,6 +3,7 @@ import formatDateForPresentation from "../../global/tools/StringTools";
 import Constants from "../../global/Constants";
 import make_request from "../ApiRequester";
 import HttpMethod from "../HttpMethod";
+import logger from "../../global/helper/LoggingHelper";
 
 async function getUsersMeetings(accessToken: string): Promise<Array<MeetingListMenuItemProps>> {
 
@@ -23,7 +24,7 @@ async function getUsersMeetings(accessToken: string): Promise<Array<MeetingListM
 
         return meetings;
     } catch (e: any) {
-        console.log(e.message);
+        logger.log(e.message);
         return []
     }
 }

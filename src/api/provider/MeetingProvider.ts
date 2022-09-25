@@ -4,6 +4,7 @@ import Constants from "../../global/Constants";
 import make_request from "../ApiRequester";
 import API_ROUTE_GET_MEETING_FROM_ID = Constants.API_ROUTE_GET_MEETING_FROM_ID;
 import HttpMethod from "../HttpMethod";
+import logger from "../../global/helper/LoggingHelper";
 
 export interface MeetingInfo extends MeetingListMenuItemProps {
     readonly meetingTranscript: string,
@@ -29,7 +30,7 @@ async function getMeetingById(accessToken: string, meetingId: number): Promise<M
             meetingNotes: meeting.meeting_notes
         }
     } catch (e: any) {
-        console.log(e.message);
+        logger.log(e.message);
         return {
             meetingID: Constants.DOES_NOT_EXIST,
             meetingTitle: "",

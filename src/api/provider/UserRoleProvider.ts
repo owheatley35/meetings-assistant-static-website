@@ -1,6 +1,7 @@
 import make_request from "../ApiRequester";
 import HttpMethod from "../HttpMethod";
 import Constants from "../../global/Constants";
+import logger from "../../global/helper/LoggingHelper";
 
 async function getUserRole(accessTokenPromise: Promise<string>): Promise<string> {
 
@@ -17,7 +18,7 @@ async function getUserRole(accessTokenPromise: Promise<string>): Promise<string>
         }
 
     } catch (e: any) {
-        console.log(e.message);
+        logger.log(e.message);
         return ""
     }
 }

@@ -9,6 +9,7 @@ import DeleteMeetingButton from "../DeleteMeetingButton";
 import getUserRole from "../../../../../api/provider/UserRoleProvider";
 import deleteMeetingNote from "../../../../../api/MeetingEditor/MeetingNoteDeleter";
 import EditMeetingPage from "../../../editmeetingpage/EditMeetingPage";
+import logger from "../../../../../global/helper/LoggingHelper";
 
 
 function MeetingInfoDisplay(props: MeetingInfoDisplayProps) {
@@ -81,7 +82,7 @@ function MeetingInfoDisplay(props: MeetingInfoDisplayProps) {
 
                             const accessCodePromise = getAccessTokenSilently()
                             updateMeetingNote(accessCodePromise, Number(props.meetingInfo.meetingID),
-                                currentCounterValue, meetingNotesArrayState[currentCounterValue]).then(r => console.log("Complete"))
+                                currentCounterValue, meetingNotesArrayState[currentCounterValue]).then(r => logger.log("Complete"))
 
                             updateStateMeetingNotesArrayNoEditState(currentCounterValue, meetingNotesArrayState[currentCounterValue])
                         }

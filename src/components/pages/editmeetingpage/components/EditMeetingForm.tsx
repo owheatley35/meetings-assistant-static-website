@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useAuth0} from "@auth0/auth0-react";
 import {unformatDateForTransmission} from "../../../../global/tools/StringTools";
 import editMeeting from "../../../../api/MeetingEditor/MeetingEditor";
+import logger from "../../../../global/helper/LoggingHelper";
 
 function EditMeetingForm(props: MeetingInfoDisplayProps) {
 
@@ -20,7 +21,7 @@ function EditMeetingForm(props: MeetingInfoDisplayProps) {
                            value={title}
                            onChange={(e) => {
                                updateTitle(e.target.value)
-                               console.log(title)
+                               logger.log(title)
                            }}/>
                 </div>
                 <div className="title-form-section-new-meting-page center-content longways">

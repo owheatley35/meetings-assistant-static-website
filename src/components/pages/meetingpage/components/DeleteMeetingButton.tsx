@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import meetingDeleter from "../../../../api/MeetingEditor/MeetingDeleter";
 import {useAuth0} from "@auth0/auth0-react";
 import getUserRole from "../../../../api/provider/UserRoleProvider";
+import logger from "../../../../global/helper/LoggingHelper";
 
 interface DeleteMeetingButtonProps {
     readonly meetingId: number
@@ -21,8 +22,6 @@ export default function DeleteMeetingButton(props: DeleteMeetingButtonProps) {
         })
     }, [])
 
-
-
     if (isAdmin) {
         return (
             <div>
@@ -35,7 +34,7 @@ export default function DeleteMeetingButton(props: DeleteMeetingButtonProps) {
                         if (r) {
                             document.location.replace("/")
                         } else {
-                            console.log("delete failed")
+                            logger.log("delete failed")
                             meetingDeleteButton.disabled = false
                             meetingDeleteButton.innerText = "Delete"
                         }
